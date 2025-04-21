@@ -1,20 +1,12 @@
-# Usa imagem oficial Node.js
-FROM node:20-alpine
+# Dockerfile
+FROM node:18
 
-# Cria diretório de trabalho
 WORKDIR /app
-
-# Copia os arquivos de dependência
-COPY package*.json ./
-
-# Instala dependências
-RUN npm install
-
-# Copia o restante da aplicação
 COPY . .
 
-# Expondo a porta (ajuste se necessário)
+RUN npm install
+RUN npm run build
+
 EXPOSE 3333
 
-# Comando para rodar a API
-CMD ["npm", "run", "start"]
+CMD ["node", "dist/server.js"]
