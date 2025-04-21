@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://192.168.3.19:3333",
+  baseURL: "https://api-lemon-theta-96.vercel.app",
 });
