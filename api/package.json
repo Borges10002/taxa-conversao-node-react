@@ -8,7 +8,7 @@
     "start": "node build/server.js",
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
-    "build": "tsup && prisma generate && cp -r prisma dist/prisma && cp .env dist/",
+    "build": "tsup && prisma generate && cp -r prisma dist/prisma && [ -f .env ] && cp .env dist/ || echo '.env not found, skipping...'",
     "build-dev": "tsup && prisma generate && xcopy prisma dist\\prisma /E /I /Y && copy .env dist\\",
     "test": "vitest run --dir src/use-cases",
     "test:watch": "vitest --dir src/use-cases",
