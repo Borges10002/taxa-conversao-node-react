@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "dist/server.js"
     }
-  ]
+  ],
+  "env": {
+    "DATABASE_URL": "postgresql://docker:docker@localhost:5432/ilumeo?schema=public"
+  }
 }
