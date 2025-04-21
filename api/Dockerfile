@@ -1,20 +1,20 @@
-# Usar a imagem oficial do Node.js
+# Usa imagem oficial Node.js
 FROM node:18-alpine
 
-# Definir o diretório de trabalho no contêiner
+# Cria diretório de trabalho
 WORKDIR /app
 
-# Copiar os arquivos do projeto para o contêiner
+# Copia os arquivos de dependência
 COPY package*.json ./
 
-# Instalar as dependências
+# Instala dependências
 RUN npm install
 
-# Copiar o código-fonte da aplicação
+# Copia o restante da aplicação
 COPY . .
 
-# Expor a porta em que o app vai rodar
-EXPOSE 3000
+# Expondo a porta (ajuste se necessário)
+EXPOSE 3333
 
-# Rodar o servidor
-CMD ["npm", "start"]
+# Comando para rodar a API
+CMD ["npm", "run", "start"]

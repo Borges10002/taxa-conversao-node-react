@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["src/**/*.ts"],
-  outDir: "build",
+  outDir: "dist",
   target: "es2020",
   format: ["cjs"],
   splitting: false,

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/@types/fastify.jwt.d.ts"],"sourcesContent":["import \"@fastify/jwt\";\n\ndeclare module \"@fastify/jwt\" {\n  export interface FastifyJWT {\n    user: {\n      role: \"ADMIN\" | \"MEMBER\";\n      sub: string;\n    };\n  }\n}\n"],"mappings":";;;AAAA,iBAAO;","names":[]}
