@@ -44,7 +44,7 @@ var env = _env.data;
 
 // src/lib/prisma.ts
 var prisma = new import_client.PrismaClient({
-  log: env.NODE_ENV === "dev" ? ["error"] : []
+  log: env.NODE_ENV === "dev" ? ["query"] : []
 });
 
 // src/repositories/prisma/prisma-conversion-repository.ts

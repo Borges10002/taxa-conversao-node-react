@@ -42,7 +42,7 @@ var env = _env.data;
 
 // src/lib/prisma.ts
 var prisma = new import_client.PrismaClient({
-  log: env.NODE_ENV === "dev" ? ["error"] : []
+  log: env.NODE_ENV === "dev" ? ["query"] : []
 });
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

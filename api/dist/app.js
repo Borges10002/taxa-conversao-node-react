@@ -55,7 +55,7 @@ var import_zod4 = __toESM(require("zod"));
 // src/lib/prisma.ts
 var import_client = require("@prisma/client");
 var prisma = new import_client.PrismaClient({
-  log: env.NODE_ENV === "dev" ? ["error"] : []
+  log: env.NODE_ENV === "dev" ? ["query"] : []
 });
 
 // src/repositories/prisma/prisma-conversion-repository.ts
