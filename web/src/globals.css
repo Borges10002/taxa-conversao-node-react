@@ -1,0 +1,4 @@
+/* Importa as diretivas do Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

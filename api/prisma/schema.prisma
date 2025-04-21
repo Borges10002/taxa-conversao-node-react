@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  role          Role     @default(MEMBER)
+  created_at    DateTime @default(now())
+
+  @@map("users")
+}
+
+model Event {
+  id                 BigInt   @id @default(autoincrement())
+  origin             String // Alterado de TEXT para String
+  response_status_id Int
+  created_at         DateTime @default(now())
+
+  @@map("event")
+}

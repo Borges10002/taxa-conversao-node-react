@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  database:
+    image: postgres
+    container_name: api-ilumeo-pg
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=ilumeo
+
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
