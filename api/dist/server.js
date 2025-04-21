@@ -288,7 +288,7 @@ var import_swagger_ui = __toESM(require("@fastify/swagger-ui"));
 var import_fastify_type_provider_zod = require("fastify-type-provider-zod");
 var app = (0, import_fastify.default)();
 app.register(import_cors.default, {
-  origin: "http://localhost:5173",
+  origin: "*",
   credentials: true
 });
 app.register(import_swagger.default, {

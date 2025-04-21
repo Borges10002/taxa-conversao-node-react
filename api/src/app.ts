@@ -15,7 +15,7 @@ import {
 export const app = fastify();
 
 app.register(fastifyCors, {
-  origin: "http://localhost:5173",
+  origin: "*",
   credentials: true,
 });
 
