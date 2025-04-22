@@ -1,19 +1,17 @@
-# Etapa de build
-FROM node:20 AS builder
+FROM node:18 AS builder
 
-WORKDIR /app
+WORKDIR /api
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-# Etapa de produção
-FROM node:20
+FROM node:18
 
-WORKDIR /app
+WORKDIR /api
 COPY package*.json ./
 RUN npm install --production
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /api/dist ./dist
 
 EXPOSE 3000
 CMD ["node", "dist/index.js"]
