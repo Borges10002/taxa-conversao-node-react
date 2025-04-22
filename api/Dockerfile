@@ -1,5 +1,5 @@
 # Etapa de build
-FROM node:18 AS builder
+FROM node:20 AS builder
 
 WORKDIR /api
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Etapa final (produção)
-FROM node:18
+FROM node:20
 
 WORKDIR /api
 
