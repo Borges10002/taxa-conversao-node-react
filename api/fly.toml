@@ -4,9 +4,9 @@ kill_timeout = 5
 processes = []
 
 [env]
-  PORT = "3333"
-  NODE_ENV="dev"
-  DATABASE_URL="postgresql://docker:docker@localhost:5432/ilumeo?schema=public"
+  PORT = "3333"  # Porta que a aplicação escuta
+  NODE_ENV = "dev"
+  DATABASE_URL = "postgresql://docker:docker@localhost:5432/ilumeo?schema=public"
 
 [experimental]
   allowed_public_ports = []
@@ -14,21 +14,20 @@ processes = []
 
 [[services]]
   internal_port = 3333
-  processes = ["app"]
   protocol = "tcp"
 
   [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
     type = "connections"
+    soft_limit = 20
+    hard_limit = 25
 
   [[services.ports]]
-    handlers = ["http"]
     port = 80
+    handlers = ["http"]
 
   [[services.ports]]
-    handlers = ["tls", "http"]
     port = 443
+    handlers = ["tls", "http"]
 
   [[services.http_checks]]
     interval = "10s"
