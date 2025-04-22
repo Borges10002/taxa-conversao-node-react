@@ -5,6 +5,9 @@ processes = []
 
 [env]
   PORT = "3333"
+  JWT_SECRET="ilumeobrasil"
+  NODE_ENV="dev"
+  DATABASE_URL="postgresql://docker:docker@localhost:5432/ilumeo?schema=public"
 
 [experimental]
   allowed_public_ports = []
