@@ -1,39 +1,62 @@
-app = "api"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+# fly.toml app configuration file generated for api-winter-star-4217 on 2025-04-22T19:27:54-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[env]
-  PORT = "3333"  # Porta que a aplicação escuta
-  NODE_ENV = "dev"
-  DATABASE_URL = "postgresql://docker:docker@localhost:5432/ilumeo?schema=public"
+app = 'api-thrumming-sea-50'
+primary_region = 'gru'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
 
 [experimental]
-  allowed_public_ports = []
   auto_rollback = true
 
-[[services]]
-  internal_port = 3333
-  protocol = "tcp"
+[build]
+  dockerfile = 'Dockerfile'
 
-  [services.concurrency]
-    type = "connections"
-    soft_limit = 20
-    hard_limit = 25
+[env]
+   DATABASE_URL = "postgres://postgres:ELLt8KTlLNkBDrc@morning-mountain-6929.flycast:5432"
+  NODE_ENV = "production"
+  PORT = "3333"
+
+ [deploy]
+   hooks = [ "npx prisma generate" ]
+
+[http_service]
+  internal_port = 3333
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 3333
 
   [[services.ports]]
     port = 80
-    handlers = ["http"]
+    handlers = ['http']
 
   [[services.ports]]
     port = 443
-    handlers = ["tls", "http"]
+    handlers = ['tls', 'http']
+
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
 
   [[services.http_checks]]
-    interval = "10s"
-    timeout = "5s"
-    grace_period = "30s"
-    method = "GET"
-    path = "/health"
-    protocol = "http"
+    path = '/health'
+    interval = '10s'
+    timeout = '5s'
+    grace_period = '30s'
+    method = 'GET'  
+    protocol = 'http'
     tls_skip_verify = false
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

@@ -37,6 +37,10 @@ app.register(fastifySwaggerUI, {
   routePrefix: "/docs",
 });
 
+app.get("/health", async () => {
+  return { status: "ok" };
+});
+
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 app.register(conversionRoutes);

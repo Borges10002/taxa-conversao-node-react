@@ -26683,6 +26683,9 @@ app.register(import_swagger.default, {
 app.register(import_swagger_ui.default, {
   routePrefix: "/docs"
 });
+app.get("/health", async () => {
+  return { status: "ok" };
+});
 app.setValidatorCompiler(import_fastify_type_provider_zod.validatorCompiler);
 app.setSerializerCompiler(import_fastify_type_provider_zod.serializerCompiler);
 app.register(conversionRoutes);

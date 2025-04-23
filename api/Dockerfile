@@ -1,30 +1,26 @@
 # Etapa de build
-FROM node:20 AS builder
+FROM node:20-bullseye as builder
 
-WORKDIR /api
+WORKDIR /app
 
-# Instala dependências
+# Copiar os arquivos do projeto
 COPY package*.json ./
 RUN npm install
 
-# Copia o restante do código e executa o build
+# Copiar o código fonte
 COPY . .
-RUN npm run build
 
-# Etapa final (produção)
-FROM node:20
+# Gerar o Prisma Client
+RUN npx prisma generate
 
-WORKDIR /api
+# Etapa de produção
+FROM node:20-bullseye AS runner
 
-# Copia apenas os arquivos necessários
-COPY package*.json ./
-RUN npm install --production
+WORKDIR /app
 
-# Copia os arquivos gerados na build
-COPY --from=builder /api/dist ./dist
+# Copiar dependências instaladas do build
+COPY --from=builder /app /app
 
-# Expõe a porta usada pela aplicação
-EXPOSE 3333
+EXPOSE 3000
 
-# Garante que o Node escute em 0.0.0.0 (depende do código também)
 CMD ["node", "dist/server.js"]

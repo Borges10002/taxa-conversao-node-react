@@ -3,8 +3,8 @@ import { env } from "./env";
 
 app
   .listen({
-    host: "0.0.0.0",
-    port: env.PORT,
+    port: 3333,
+    host: "0.0.0.0", // <- ESSENCIAL PARA FLY.IO
   })
   .then(() => {
     console.log(`🚀 HTTP Server Running - ${env.PORT}!`);
