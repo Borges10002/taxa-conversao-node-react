@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Desafio Tech Lead: Evolução Temporal de taxa de conversão",
   "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
