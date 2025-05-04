@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://api-thrumming-sea-50.fly.dev",
+  baseURL: "https://taxa-conversao-node-react.onrender.com",
 });
