@@ -26,7 +26,7 @@ app.register(fastifySwagger, {
     info: {
       title: "Conversions",
       description:
-        "Especificações da API para o back-end da aplicação Desafio Tech Lead: Evolução Temporal de taxa de conversão",
+        "Especificações da API para o back-end da aplicação: Evolução Temporal de taxa de conversão",
       version: "1.0.0",
     },
   },
