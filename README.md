@@ -14,11 +14,13 @@ Projeto técnico para análise da taxa de conversão por canal, desenvolvido com
 - **Prisma ORM** — acesso ao banco de dados PostgreSQL
 - **Vite** — para build e execução mais rápidos durante o desenvolvimento
 - **Swagger** — documentação interativa da API
+- **render** — para deploy do backend
 
 ### Frontend
 
 - **React** com **TypeScript**
 - **Tailwind CSS** — estilização moderna e produtiva
+- **vercel** — para deploy do frontend
 
 ---
 
@@ -61,7 +63,7 @@ Entendam os contratos (input/output) definidos com Zod
 
 🌐 Acessando a documentação
 Após subir a API, você pode acessar:
-http://localhost:3333/docs
+https://taxa-conversao-node-react.onrender.com/docs
 Lá é possível testar os endpoints, ver os exemplos de request/response e confirmar que os contratos Zod estão sendo seguidos.
 
 ### ⚖️ Trade-offs
@@ -71,3 +73,9 @@ Decidimos manter a estrutura simples e objetiva, priorizando performance e legib
 O uso do Zod direto nos endpoints evita necessidade de DTOs separados, mas exige atenção para manter a tipagem sincronizada.
 
 O SQL de seed foi tratado localmente devido ao seu tamanho elevado (não incluído no repositório por restrição do GitHub).
+
+### Link do Aplicativo: Taxa de Conversão por Canal
+
+Acesse a ferramenta online mostra a taxa de conversão por canal:
+
+https://taxa-conversao-node-react-1vgs-git-main-borges10002s-projects.vercel.app/
