@@ -14,13 +14,13 @@ Projeto técnico para análise da taxa de conversão por canal, desenvolvido com
 - **Prisma ORM** — acesso ao banco de dados PostgreSQL
 - **Vite** — para build e execução mais rápidos durante o desenvolvimento
 - **Swagger** — documentação interativa da API
-- **render** — para deploy do backend
+- **Render** — para deploy do backend
 
 ### Frontend
 
 - **React** com **TypeScript**
 - **Tailwind CSS** — estilização moderna e produtiva
-- **vercel** — para deploy do frontend
+- **Vercel** — para deploy do frontend
 
 ---
 
